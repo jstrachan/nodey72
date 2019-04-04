@@ -7,7 +7,7 @@ build:
     docker: {}
   tagPolicy:
     envTemplate:
-      template: '{{.DOCKER_REGISTRY}}/jstrachan/nodey72:{{.VERSION}}'
+      template: '{{.DOCKER_REGISTRY}}/jenkinsx-dev/nodey72:{{.VERSION}}'
   local: {}
 deploy:
   kubectl: {}
@@ -18,7 +18,7 @@ profiles:
     - docker: {}
     tagPolicy:
       envTemplate:
-        template: '{{.DOCKER_REGISTRY}}/jstrachan/nodey72:{{.DIGEST_HEX}}'
+        template: '{{.DOCKER_REGISTRY}}/jenkinsx-dev/nodey72:{{.DIGEST_HEX}}'
     local: {}
   deploy:
     helm:
@@ -26,5 +26,5 @@ profiles:
       - name: nodey72
         chartPath: charts/nodey72
         setValueTemplates:
-          image.repository: '{{.DOCKER_REGISTRY}}/jstrachan/nodey72'
+          image.repository: '{{.DOCKER_REGISTRY}}/jenkinsx-dev/nodey72'
           image.tag: '{{.DIGEST_HEX}}'
